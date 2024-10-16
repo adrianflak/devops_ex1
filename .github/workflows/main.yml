@@ -27,7 +27,8 @@ jobs:
 
   deploy:
     name: deploy
-    runs-on: ubutn-latest
+    needs: build
+    runs-on: ubuntu-latest
     steps: 
     - name: Github
       uses: actions/checkout@v4

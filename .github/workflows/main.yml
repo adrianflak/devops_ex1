@@ -8,8 +8,9 @@ on:
     - main
   workflow_dispatch:
 jobs: 
+    
   build:
-    name: test&deploy
+    name: test
     runs-on: ubuntu-22.04
     steps: 
     - name: Github
@@ -23,6 +24,21 @@ jobs:
       run: npm install
     - name: Uruchomienie testów
       run: npm test
+
+  deploy:
+    name: deploy
+    runs-on: ubutn-latest
+    steps: 
+    - name: Github
+      uses: actions/checkout@v4
+    - name: FTP
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      with:
+        server: 20.215.225.197
+        username: ${{secrets.username}}
+        password: ${{secrets.password}}
+        server-dir: www/
+
 
   
       

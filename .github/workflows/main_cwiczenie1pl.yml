@@ -56,7 +56,6 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'cwiczenie1pl'
-          slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D7457039B04542E3ABD6DA167E3935BF }}
+          app-name: 'nowaapka1'
+          publish-profile: ${{ secrets.azure_zmienna }}
           package: .
